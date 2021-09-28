@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Parallax</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
     <header>
         <a href="#" class="logo">Logo</a>
@@ -19,9 +21,43 @@
     </header>
     <section>
         <img src="stars.png" id="stars">
-        <img src="moon.png" id="moons">
+        <img src="moon.png" id="moon">
         <img src="mountains_behind.png" id="mountains_behind">
+        <h2 id="text">Moon Light</h2>
+        <a href="#sec" id="btn">Explore</a>
         <img src="mountains_front.png" id="mountains_front">
     </section>
+    <div class="sec" id="sec">
+        <h2>Parallax scrolling</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque harum laboriosam amet repellendus? Officia,
+            expedita corrupti. Sunt, fuga eius. Facilis eius temporibus consequatur veniam nihil accusantium tempore
+            voluptas molestiae tenetur.<br><br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque harum laboriosam amet repellendus? Officia,
+            expedita corrupti. Sunt, fuga eius. Facilis eius temporibus consequatur veniam nihil accusantium tempore
+            voluptas molestiae tenetur.</p>
+    </div>
+
+    <script>
+        let stars = document.getElementById('stars');
+        let moon = document.getElementById('moon');
+        let mountains_behind = document.getElementById('mountains_behind');
+        let mountains_front = document.getElementById('mountains_front');
+        let text = document.getElementById('text');
+        let btn = document.getElementById('btn');
+        let header = document.querySelector('header');
+
+        window.addEventListener('scroll', function(){
+            let value = window.scrollY;
+            stars.style.left = value + 'px';
+            moon.style.top = value + 'px';
+            mountains_behind.style.top = value * 0.5 + 'px';
+            mountains_front.style.top = value * 0 + 'px';
+            text.style.marginRight = value * 4 + 'px';
+            text.style.marginTop = value * 1.5 + 'px';
+            btn.style.marginTop = value * 1.5 + 'px';
+            header.style.top = value * 0.5 + 'px';
+        })
+    </script>
+
 </body>
+
 </html>
